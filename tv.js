@@ -5,7 +5,7 @@ var sBigBad2 = ",슈퍼콩서,다큐,NEWS,어떻게살,일 24시,소나무,시�
 
 function bFind(saValue, sText, bExact)
 {
-   sText = sText.trim()
+   sText = sText.trim();
    for(var i = 0; i < saValue.length; i++)
    {
       if(!bExact && sText.indexOf(saValue[i]) != -1)
@@ -44,10 +44,10 @@ function findParentWithClass(node, class_name, count)
    	return node;
   }
    else
-	   return findParentWithClass(node.parentNode, class_name, count-1) 
+	   return findParentWithClass(node.parentNode, class_name, count-1); 
   }
    else
-	   return findParentWithClass(node.parentNode, class_name, count-1) 
+	   return findParentWithClass(node.parentNode, class_name, count-1); 
 }
 
 function myFunction(sMode, sExtraGood, sExtraBad, bCheckMain, bRedirect) 
@@ -84,7 +84,7 @@ function myFunction(sMode, sExtraGood, sExtraBad, bCheckMain, bRedirect)
     }    
     
     var anchors = document.querySelectorAll('a');
-    var link = []
+    var link = [];
     var goodElement, badElement;
     for (var i = 0; i< anchors.length; i++) 
     {
@@ -161,7 +161,7 @@ function myFunction(sMode, sExtraGood, sExtraBad, bCheckMain, bRedirect)
       	setTimeout(function(){
         	var win = window.open(link.href, "_self");
     		win.focus();
-      	}, 1000)
+      	}, 1000);
     		break;
       }
     }
