@@ -84,6 +84,8 @@ function myFunction(sMode, sExtraGood, sExtraBad, bCheckMain, bRedirect)
     }    
     
     var anchors = document.querySelectorAll('a');
+	if (sMode == "div")
+		anchors = document.querySelectorAll('div');
     var link = [];
     var goodElement, badElement;
     for (var i = 0; i< anchors.length; i++) 
