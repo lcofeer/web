@@ -168,6 +168,7 @@ function myFunction(sMode, sExtraGood, sExtraBad, bCheckMain, bRedirect)
 		anchors = document.querySelectorAll('div');
     var link = [];
     var goodElement, badElement;
+	var linkText;
     for (var i = 0; i< anchors.length; i++) 
     {
       link = anchors[i];
@@ -195,26 +196,31 @@ function myFunction(sMode, sExtraGood, sExtraBad, bCheckMain, bRedirect)
       {
 	      badElement = link.parentNode.parentNode.parentNode.parentNode;
       }
+      else if (sMode == "ppppp")
+      {
+	      badElement = link.parentNode.parentNode.parentNode.parentNode.parentNode;
+      }
       else if (sMode == "pp" || sMode == "tv25m" || sMode == "viva")
       {
 	      badElement = link.parentNode.parentNode;
       }
-      
-      if (bCheckMain && bFind(saBad, link.innerHTML, false)) 
+
+	  linkText = link.innerHTML + " " + link.outerHTML;
+      if (bCheckMain && bFind(saBad, linkText, false)) 
       {
     	//alert(link.innerHTML);
     	//console.log("bad: " + link.innerHTML);
 	
-	if(sSubMode != "")
-	{
-	  var hasCSS = findParentWithClass(link.parentNode, sSubMode, 10);
-          if(hasCSS !== undefined && hasCSS !== null)
-		badElement = hasCSS; 	
-	}
-	
-	badElement.style["display"] = "none";
+		if(sSubMode != "")
+		{
+		  var hasCSS = findParentWithClass(link.parentNode, sSubMode, 10);
+	          if(hasCSS !== undefined && hasCSS !== null)
+			badElement = hasCSS; 	
+		}
+		
+		badElement.style["display"] = "none";
       }	
-      else if (bCheckMain && bFind(saGood, link.innerHTML, false)) 
+      else if (bCheckMain && bFind(saGood, linkText, false)) 
       {
     	//alert(link.innerHTML);
         goodElement.style["font-weight"] = "bold";
@@ -222,7 +228,7 @@ function myFunction(sMode, sExtraGood, sExtraBad, bCheckMain, bRedirect)
     	  goodElement.style["color"] = "#53a822";
     	//console.log("good: " + link.innerHTML);
       }
-      else if (sMode == "kotbc" && bCheckMain && link.innerHTML.indexOf("Update!") != -1) 
+      else if (sMode == "kotbc" && bCheckMain && linkText.indexOf("Update!") != -1) 
       {
     		//alert(link.innerHTML);
     		//console.log("bad: " + link.innerHTML);
@@ -234,9 +240,9 @@ function myFunction(sMode, sExtraGood, sExtraBad, bCheckMain, bRedirect)
         //console.log("bad: " + link.innerHTML);
         badElement.style["display"] = "none";
       }   
-      else if (bRedirect && (link.innerHTML.indexOf("airst") != -1 
-      || link.innerHTML.indexOf("filemoon") != -1
-      || link.innerHTML.indexOf("luulu") != -1
+      else if (bRedirect && (linkText.indexOf("airst") != -1 
+      || linkText.indexOf("filemoon") != -1
+      || linkText.indexOf("luulu") != -1
       )) 
       {
       	//console.log("finish ==================== : ");
