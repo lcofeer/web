@@ -1,7 +1,8 @@
-var sBigGood = "데스게임,1등,대학전쟁,오은영,서프라이즈,이호선,너의 순위는,들의 발,싱어게,마이 턴,꾼들,마이턴,오은영 스테이,스트릿 우먼,브레인,위대한쇼,취미는,신인감,알아두면,옥탑방의,알쓸별잡,미스터트롯,마법의,동호회,늦기전,국민 참견,";
+var sBigGood = "세계는 지금,데스게임,1등,대학전쟁,오은영,서프라이즈,이호선,너의 순위는,들의 발,싱어게,마이 턴,꾼들,마이턴,오은영 스테이,스트릿 우먼,브레인,위대한쇼,취미는,신인감,알아두면,옥탑방의,알쓸별잡,미스터트롯,마법의,동호회,늦기전,국민 참견,";
 	sBigGood += "모던인,유 퀴,골 때,매직스,결혼지,스 온 파,즘 육아,돈워리,애의 참견,아이가 달,혼 지옥,벗은 세,금쪽 상,싱포맨,꼬리에,추리,벗은 세,쌤과 함,팬텀싱,뭉쳐야,신비한TV,문제적,싱어게";
  
-var sBigBad = "메추리 원,꽃보다 ,쯔양몇끼,건강한 식,돌싱N,스모킹건,봉주르빵,최우수산,아모르바디,형수다,프리한 19,유재석 캠프,은밀한 여자,남의 집,슈퍼캐치,WANNA ONE,아이엠닥,생존의 비밀,법륜로드,말자쇼,핑계고,극한 직업,생존의 단서,아니 근,한문철의,더 보다,방과후,최강로드,육아인턴,연애기숙,무명전설,집을 바,왔나~,언포게터블,잘 빠지,";
+var sBigBad = "전설의 탄생,건강한,사건반장,밥 플레이스,현장르포,적과의 동거,언더커버,원희는 스무살,차박 로드,신드롬,연애실험실,놀러코스터,닥치고 한,스탠바이미,골맛나는,메추리 원,꽃보다 ,쯔양몇끼,건강한 식,돌싱N,스모킹건,봉주르빵,최우수산,아모르바디,형수다,프리한 19,유재석 캠프,은밀한 여자,남의 집,슈퍼캐치,WANNA ONE,아이엠닥,생존의 비밀,법륜로드,말자쇼,핑계고,극한 직업,생존의 단서,아니 근,";
+sBigBad += "한문철의,더 보다,방과후,최강로드,육아인턴,연애기숙,무명전설,집을 바,왔나~,언포게터블,잘 빠지,";
 sBigBad += "인생 때,박장대소,스몰토크,일병 김원훈,고나리돌,스위치 마,러브&,차가네,당일배송,밥플레,끝까지 간,누난 내게,미스터리클,세 개의 시선,극한84,";
 sBigBad += "헬스파머,김주하의,자매다방,세트포유,알바로 바,셰프,슈퍼레이스 프리스타일,케냐 간,괴담,퍼펙트 글,하나부터 열까지,퍼펙트 글,크 셰프,세트포유,";
 sBigBad += "스테이지 W,거리의 의,엄홍길,누난 내,세상을 비집,TTA,피프티 트립,찐이네,흙심인,한 컷,띵동택,길치라도,런포유,히든카드,사제 공감,콩콩,투 찐이네,";
@@ -207,7 +208,15 @@ function myFunction(sMode, sExtraGood, sExtraBad, bCheckMain, bRedirect)
       }
 
 	  linkText = link.innerHTML + " " + link.outerHTML;
-      if (bCheckMain && bFind(saBad, linkText, false)) 
+      if (bCheckMain && bFind(saGood, linkText, false)) 
+      {
+    	//alert(link.innerHTML);
+        goodElement.style["font-weight"] = "bold";
+    	  goodElement.style["font-size"] = "18px";
+    	  goodElement.style["color"] = "#53a822";
+    	//console.log("good: " + link.innerHTML);
+      }
+      else if (bCheckMain && bFind(saBad, linkText, false)) 
       {
     	//alert(link.innerHTML);
     	//console.log("bad: " + link.innerHTML);
@@ -221,14 +230,6 @@ function myFunction(sMode, sExtraGood, sExtraBad, bCheckMain, bRedirect)
 		
 		badElement.style["display"] = "none";
       }	
-      else if (bCheckMain && bFind(saGood, linkText, false)) 
-      {
-    	//alert(link.innerHTML);
-        goodElement.style["font-weight"] = "bold";
-    	  goodElement.style["font-size"] = "18px";
-    	  goodElement.style["color"] = "#53a822";
-    	//console.log("good: " + link.innerHTML);
-      }
       else if (sMode == "kotbc" && bCheckMain && linkText.indexOf("Update!") != -1) 
       {
     		//alert(link.innerHTML);
